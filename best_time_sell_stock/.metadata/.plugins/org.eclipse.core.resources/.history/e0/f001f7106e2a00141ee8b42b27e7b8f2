@@ -1,0 +1,12 @@
+package stock;
+
+public class Solution {
+	public int maxProfit(int[] prices) {
+		
+		// sort from left to right, store the minimum
+		
+		int min_price = Interger.
+		
+        return 0;
+    }
+}

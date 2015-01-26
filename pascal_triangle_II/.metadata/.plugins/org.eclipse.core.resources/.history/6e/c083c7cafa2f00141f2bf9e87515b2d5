@@ -1,0 +1,16 @@
+package hw;
+import java.util.*;
+
+public class Solution {
+    public List<Integer> getRow(int rowIndex) {
+    	List<Integer> result = new ArrayList<Integer>();
+        if (rowIndex == 0) {
+        	result.add(1);
+        	return result;
+        } else {
+        	for(int i=1; i<rowIndex; i++)
+        	
+        	return result;
+        }
+    }
+}

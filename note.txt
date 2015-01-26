@@ -1,0 +1,6 @@
+1. In Java, to access the length of an array, such as int[] a, 'length' without '()' should be used. In other words, 
+int length = a.length; 
+is correct.
+
+2. It seems that the Map class can only take objectives as the Key and the Value. In other words,
+Map<Integer, Integer> is correct, while Map<int, int> is not.

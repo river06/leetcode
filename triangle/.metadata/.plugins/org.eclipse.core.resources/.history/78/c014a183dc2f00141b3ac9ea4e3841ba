@@ -1,0 +1,17 @@
+package HW;
+import java.util.*;
+
+public class triangle {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		List<List<Integer>> triangle = new ArrayList<ArrayList<Integer>>(3);
+		
+
+	}
+
+}

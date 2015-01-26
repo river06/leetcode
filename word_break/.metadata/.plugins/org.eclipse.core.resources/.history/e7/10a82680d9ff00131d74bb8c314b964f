@@ -1,0 +1,26 @@
+package hw.duke.edu;
+
+public class Solution {
+    public boolean wordBreak(String s, Set<String> dict) {
+        int nS = s.length;
+		
+		boolean[] possible = new boolean[nS];
+		
+		for(int i=0; i<nS; i++) {
+			possible[i] = false;
+		}
+		
+		possible[0] = dict.contains( s.substring(0,0));
+		
+		for(int i =1; i<nS; i++) {
+			for(int j=0; j<i; j++) {
+				possible[i] = ( possible[j] & dict.contains( s.substring(j,i) ) );
+				
+				if(possible[i]) break;
+			}
+		}
+		
+		return possible[nS-1];
+		
+    }
+}

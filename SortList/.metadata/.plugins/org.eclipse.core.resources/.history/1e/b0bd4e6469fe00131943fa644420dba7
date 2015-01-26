@@ -1,0 +1,149 @@
+
+public class Solution {
+	public static ListNode sortList(ListNode head) {
+		if(head==null) return head;
+		
+        // get the length of the ListNode
+		int nNode = 0;
+		ListNode pIterate = head;
+		while(pIterate != null){
+			pIterate = pIterate.next;
+			nNode ++;
+		}
+		
+		for(int sortedWidth=1; sortedWidth < nNode; sortedWidth*=2){
+			// each time, double the length of sortedWidth
+			// sortedWidth starts with one, since the one-length list can be viewed as sorted
+			
+			ListNode p1 = head; // head
+			ListNode p2 = head; // middle
+            ListNode p3 = null; // end
+            
+            ListNode p11 = null; // next head
+
+            //ListNode p4 = null;
+			
+			for(int i=0; i<nNode; i+= 2*sortedWidth){
+				// get the correct p1 and p2
+                if(i==0){
+                    p2 = slideReferenceBack(p1,sortedWidth);
+                    p11 = slideReferenceBack(p2,sortedWidth);
+                }else{
+                	
+                    p1 = p11;
+                    p2 = slideReferenceBack(p1,sortedWidth);
+                    p11 = slideReferenceBack(p2,sortedWidth+1);
+                    
+				}
+                
+                if(i==0){
+                	if( p2!=null) {
+                		head = bottomUpMergeSort(p1,p2,sortedWidth);
+                		p3 = slideReferenceBack(head,2*sortedWidth-1);
+                		p3.next = p11;
+                	} else {
+                		head = p1;
+                	}
+                	
+                } else {
+                	if (p2!=null) {
+                		p3.next = bottomUpMergeSort(p1,p2,sortedWidth);
+                		p3 = slideReferenceBack(p3,2*sortedWidth);
+                		p3.next = p11;
+                	} else {
+                		p3.next = p1;
+                	}
+                	
+                	
+                }
+			}
+			
+		}
+        return head;
+    }
+	
+	private static ListNode bottomUpMergeSort(ListNode p1, ListNode p2, int sortedWidth){
+		// ListNode pHT = null; // reference of head an tail
+		// ListNode pTemp = null;
+		
+		// storing the head
+		/*if(p1.val > p2.val){
+			pHT = p2;
+			p2 = p1;
+			p1 = pHT;
+			
+		}else{
+			pHT = p1;
+		}*/
+		
+		ListNode pDummyHead = new ListNode(0);
+		
+		ListNode pAllIter = pDummyHead;
+		int numP1 = 0;
+		int numP2 = 0;
+		while(numP1 < sortedWidth || numP2 < sortedWidth) {
+			if( (p1==null && p2 == null) || (p1==null && numP2>=sortedWidth) || (p2==null && numP1 >= sortedWidth)) {
+				pAllIter.next = null;
+				break;
+			} else if (p1==null || numP1 >= sortedWidth) {
+				pAllIter.next = p2;
+				p2 = p2.next;
+				numP2 ++;
+			} else if (p2==null || numP2 >= sortedWidth) {
+				pAllIter.next = p1;
+				p1 = p1.next;
+				numP1 ++;
+			} else {
+				if(p1.val > p2.val){
+					pAllIter.next = p2;
+					p2 = p2.next;
+					numP2++;
+				} else {
+					pAllIter.next = p1;
+					p1 = p1.next;
+					numP1++;
+				}
+			}
+			
+			pAllIter = pAllIter.next;
+		}
+		
+		/*
+		for(int i=0; i<2*sortedWidth-1; i++){
+			// use p1 to maintain the list
+			// use p2 to refer to the other list
+			// ListNode pTemp;
+			if(p2==null){
+				break;
+			}else if(p1.next == null){
+                p1.next = p2;
+                break;
+            }else if(p1.next!=null){
+				// compare the value and return
+				if(p1.next.val > p2.val){
+					pTemp = p1.next;
+					p1.next = p2;
+					p2 = pTemp;
+				}
+				
+				p1 = p1.next;
+			}
+		}*/
+		return pDummyHead.next;
+	}
+	
+	private static ListNode slideReferenceBack(ListNode p, int step){
+		
+		if(p==null) {
+			return p;
+		}
+		for(int i =0; i<step; i++){
+			if(p.next == null){
+				p = null;
+				break;
+			}
+			p = p.next;
+		}
+		return p;
+	}
+}

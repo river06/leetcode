@@ -1,0 +1,31 @@
+
+public class w {
+
+	/**
+	 * @param args
+	 */
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//test case
+		ListNode head = new ListNode(3);
+		
+		System.out.print("Eclipse SDK is shit");
+	
+	}
+	
+	class ListNode{
+		private int val;
+		private ListNode next;
+		public ListNode(int x){
+			val = x;
+			next = null;
+		}
+	}
+	
+
+}
+

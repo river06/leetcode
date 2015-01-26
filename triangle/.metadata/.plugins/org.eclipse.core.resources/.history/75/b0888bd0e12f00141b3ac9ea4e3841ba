@@ -1,0 +1,26 @@
+package HW;
+
+import java.util.List;
+
+public class Solution {
+	public int minimumTotal(List<List<Integer>> triangle) {
+		
+		if( triangle.isEmpty() ) {
+			return 0;
+		}
+        int height = triangle.size();
+		if( height == 1 ) return triangle.get(0).get(0);
+		int width = height;
+		
+		for(int i=height-2; i>=0; i--) {
+			for(int j=0; j<=i; j++) {
+				int left_min = triangle.get(i+1).get(j);
+				int right_min = triangle.get(i+1).get(j+1);
+				int val = triangle.get(i).get(j);
+				int min_sum = Math.min(val+left_min, val+right_min);
+				triangle.get(i).set(j,min_sum);
+			}
+		}
+		return triangle.get(0).get(0);
+    }
+}

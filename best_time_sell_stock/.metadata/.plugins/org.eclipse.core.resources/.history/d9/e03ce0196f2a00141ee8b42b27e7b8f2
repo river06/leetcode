@@ -1,0 +1,17 @@
+package stock;
+
+public class BestTimeSellStock {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] prices = {0,1,2};
+		int result = Solution.maxProfit(prices);
+		
+		System.out.print(result);
+		
+	}
+
+}

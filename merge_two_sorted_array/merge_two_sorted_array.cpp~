@@ -1,0 +1,21 @@
+class Solution {
+public:
+  void merge(int A[], int m, int B[], int n) {
+    // IMPORTANT: Please reset any member data you declared, as
+    // the same Solution instance will be reused for each test case.
+    
+    // the computational complexity should be O(m+n) no matter how naive the algorithm is.
+    // use a counter to mark where to look in array next time
+    int start_index = m;
+    for(int i=n-1; i>0; i--){
+      for(int j=start_index-1; j>0; j--){
+	if(B[i] < A[j]){
+	  // if element in array A is bigger than the element for comparision in array B,
+	  // then move element in A one space back.
+	  A[j]; 
+	}else
+	  // else, put element from B where it belongs.
+	}
+        
+  }
+};

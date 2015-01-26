@@ -1,0 +1,7 @@
+public class GenerateParentheses {
+	public static void main(String[] args) {
+		String test = "ABC";
+		test += 'a';
+		System.out.println(test);
+	}
+}

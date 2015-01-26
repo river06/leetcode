@@ -1,0 +1,13 @@
+package HW;
+
+public class Solution {
+	public int minimumTotal(List<List<Integer>> triangle) {
+		
+		if( triangle.isEmpty() ) {
+			return 0;
+		}
+        int height = triangle.size();
+		if( height == 1 ) return triangle
+		int width = triangle.get(0).get(0);
+    }
+}

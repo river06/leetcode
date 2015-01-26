@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<vector<int> > threeSum(vector<int> &num) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+      vector<vector<int> > res;
+      vector<int> t;
+      int n = num.size();
+      int ckj = num.at(0) - 1;
+      for(int i = 0; i<=n-3; ++i){
+	int j = i + 1;
+	int k = n - 1;
+	int sum2 = num.at(j) + num.at(k);
+	if(num.at(i)+sum2<0){
+	  j++;
+	}else if(num.at(i)+sum2>0){
+	  k--;
+	}else if(num.at(j)!=ckj){;
+	  ckj = num.at(j);
+	  t.clear();
+	  t.push_back(num.at(i));
+	  t.push_back(num.at(j));
+	  t.push_back(num.at(k));
+	  res.push_back(t);
+	  j++;
+	  k--
+	}
+      }
+        
+    }
+};

@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class BinaryTreePosterorderTravel {
+
+	/**
+	 * @param args
+	 */
+	static TreeNode root = new TreeNode(1);
+	static Vector test = new Vector(10);
+	
+	System.out.print(test[0]);
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<Integer> result = solution.postorderTraversal(root);
+		System.out.print(result.get(0));
+	}
+
+}

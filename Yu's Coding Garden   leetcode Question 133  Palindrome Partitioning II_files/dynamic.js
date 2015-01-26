@@ -1,0 +1,10 @@
+_clustrmaps.layer('recent',{'points':[[37.3394,-121.8950,"US","San Jose, California"]],timestamp:'201407100406'});
+_clustrmaps.layer('recent',{'points':[[37.3721,-121.8643,"US","San Jose, California"]],timestamp:'201407100403'});
+_clustrmaps.layer('recent',{'points':[[36.0378,-78.9858,"US","Durham, North Carolina"]],timestamp:'201407100400'});
+_clustrmaps.layer('recent',{'points':[[47.5869,-122.0296,"US","Sammamish, Washington"]],timestamp:'201407100356'});
+_clustrmaps.layer('recent',{'points':[[37.8044,-122.2708,"US","Oakland, California"]],timestamp:'201407100353'});
+_clustrmaps.layer('recent',{'points':[[39.0495,-94.4090,"US","Independence, Missouri"]],timestamp:'201407100351'});
+_clustrmaps.layer('recent',{'points':[[42.4163,-70.9969,"US","Revere, Massachusetts"]],timestamp:'201407100350'});
+_clustrmaps.layer('recent',{'points':[[40.7229,-73.8424,"US","Forest Hills, New York"]],timestamp:'201407100348'});
+_clustrmaps.layer('recent',{'points':[[45.2882,-75.7566,"CA","Ottawa"]],timestamp:'201407100346'});
+_clustrmaps.layer('recent',{'points':[[38.8791,-77.3766,"US","Fairfax, Virginia"]],timestamp:'201407100345'});

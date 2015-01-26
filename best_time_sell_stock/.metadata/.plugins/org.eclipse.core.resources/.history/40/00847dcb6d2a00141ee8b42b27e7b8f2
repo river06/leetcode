@@ -1,0 +1,10 @@
+package stock;
+
+public class Solution {
+	public int maxProfit(int[] prices) {
+		
+		// sort from left to right
+		
+        return 0;
+    }
+}

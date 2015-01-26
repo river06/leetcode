@@ -1,0 +1,22 @@
+package hw;
+
+public class Solution {
+	
+	private void dfs(TreeLinkNode root) {
+		if(root == null ) {
+			return;
+		}
+		
+		if( root.next == null) {
+			// if root is on the right boundary of the tree
+			if(root.right!=null) {
+				
+			}
+		}
+	}
+	
+	public void connect(TreeLinkNode root) {
+        
+    }
+
+}

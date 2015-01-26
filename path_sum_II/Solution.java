@@ -1,0 +1,64 @@
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+package path_sum_II;
+
+import java.util.*;
+
+public class Solution {
+    public static ArrayList<ArrayList<Integer>> pathSum(TreeNode root, int sum) {
+		
+		ArrayList<ArrayList<Integer>> result_list = new ArrayList<ArrayList<Integer>>();
+
+		if(root == null) {
+			return result_list;
+		}
+
+		ArrayList<Integer> current_path = new ArrayList<Integer>();
+		current_path.add(root.val);
+
+		//System.out.println(current_path);
+
+		result_list = DFS(root, sum, current_path, result_list);
+
+		return result_list;
+    }
+
+	public  static ArrayList<ArrayList<Integer>> DFS (TreeNode root, int sum, ArrayList<Integer> current_path, ArrayList<ArrayList<Integer>> result_list) {
+
+		if(root.left == null && root.right == null) {
+			if(sum - root.val ==0) {
+				// if a valid path
+				result_list.add(current_path);
+				return result_list;
+			} else {
+				return result_list;
+			}
+		}
+
+		// search left child
+		if(root.left != null) {
+			ArrayList<Integer> current_path_left = new ArrayList<Integer>(current_path);
+			current_path_left.add(root.left.val);
+			//System.out.println(current_path);
+			result_list = DFS(root.left, sum-root.val, current_path_left, result_list);
+		}
+		// search right child
+		if(root.right != null) {
+			ArrayList<Integer> current_path_right = new ArrayList<Integer>(current_path);
+			current_path_right.add(root.right.val);
+			result_list = DFS(root.right, sum-root.val, current_path_right, result_list);
+		}
+
+		
+
+		return result_list;
+		
+	}
+}

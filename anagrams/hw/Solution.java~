@@ -1,0 +1,6 @@
+public class Solution {
+    public List<String> anagrams(String[] strs) {
+        ArrayList<String> result = new ArrayList<String>();
+        
+    }
+}
