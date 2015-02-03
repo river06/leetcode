@@ -1,5 +1,6 @@
+import java.util.*;
 public class Solution {
-    public List<Integer> findSubstring(String S, String[] L) {
+    public ArrayList<Integer> findSubstring(String S, String[] L) {
 		// this solution utilizes the sliding window algorithm
 		// the complexity should be O(n/l * l) = O(n), where
 		// n is the length of S, l is the length of the string in L
@@ -21,7 +22,6 @@ public class Solution {
 
 		int n = S.length();
 		int l = L[0].length();
-//		int m = L.length;
 		
 		for( int i=0; i<l; i++) {
 			// in order to consider all the cases, 
@@ -33,7 +33,10 @@ public class Solution {
 			for( int win_e = i; win_e<=n-l; win_e+=l ) {
 				String cur = S.substring(win_e, win_e + l);
 				if( dic_L.containsKey( cur ) ) {
-					if( observed.get(cur) < dic_L.get(cur) ) {
+					if( !observed.containsKey(cur) ) {
+						observed.put(cur, 1 );
+						num_L ++;
+					} else if( observed.get(cur) < dic_L.get(cur) ) {
 						observed.put(cur, observed.get(cur)+1 );
 						num_L ++;
 					} else {
@@ -50,10 +53,18 @@ public class Solution {
 						}
 					}
 				} else {
-					win_s = win_e + l;
+					// clear observed strings
 					observed.clear();
+					win_s = win_e + l;
 					num_L = 0;
 				}
+
+				if(num_L == L.length) ret.add( win_s );
+
+			}
+		}
+
+		return ret;
 				
     }
 }
